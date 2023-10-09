@@ -43,9 +43,11 @@ jobs:
         runs-on: ubuntu-latest
         name: A job to say hello
         steps:
-            - name: display hello world
-              run: echo "Hello World"
-            - name: Checkout code
-              uses: actions/checkout@v2
-            - name: display file 1
-              run: cat file1.txt
+          - name: display hello world
+            run: echo "Hello World"
+          - name: Checkout code
+            uses: actions/checkout@v2
+          - name: ls
+            run: ls
+          - name: display file 1
+            run: cat file1.txt
