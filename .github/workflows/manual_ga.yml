@@ -50,4 +50,4 @@ jobs:
           - name: ls
             run: ls
           - name: display file 1
-            run: cat file1.txt
+            run: cat file.txt
