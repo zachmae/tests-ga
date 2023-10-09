@@ -51,3 +51,10 @@ jobs:
             run: ls
           - name: display file 1
             run: cat file.txt
+          - name: create release
+            uses: softprops/action-gh-release@v1
+            with:
+              files: |
+                # List the files you want to include in the release
+                ./file.txt
+              token: ${{ secrets.REPO_TOKEN }}
