@@ -62,7 +62,7 @@ jobs:
             id: get_version
             run: |
               # Read the release version from a text file
-              echo "::set-output name=version::${{ steps.latesttag.outputs.tag }}"
+              echo "::set-output name=version::${{ steps.previoustag.outputs.tag }}"
             shell: bash
           - name: display version
             run: echo ${{ steps.get_version.outputs.version }}
