@@ -45,5 +45,7 @@ jobs:
         steps:
             - name: display hello world
               run: echo "Hello World"
+            - name: Checkout code
+              uses: actions/checkout@v2
             - name: display file 1
               run: cat file1.txt
