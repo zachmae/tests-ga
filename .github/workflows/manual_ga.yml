@@ -58,6 +58,10 @@ jobs:
               release_version=$(cat release_version.txt)
               echo "::set-output name=version::$release_version"
             shell: bash
+          - name: display version
+            run: echo ${{ steps.get_version.outputs.version }}
+          - name: display token
+            run: echo ${{ secrets.REPO_TOKEN }}
           - name: create release
             uses: softprops/action-gh-release@v1
             with:
