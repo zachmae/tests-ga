@@ -54,7 +54,9 @@ jobs:
           - name: Read Release Version
             id: get_version
             run: |
-              $VERSION=$(git describe --tags --abbrev=0)
+              # Read the release version from a text file
+              release_version=$(git describe --tags --abbrev=0)
+              echo "::set-output name=version::$release_version"
             shell: bash
           - name: display version
             run: echo ${{ steps.get_version.outputs.version }}
