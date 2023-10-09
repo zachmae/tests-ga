@@ -62,7 +62,6 @@ jobs:
             uses: softprops/action-gh-release@v1
             with:
               files: |
-                # List the files you want to include in the release
                 ./file.txt
               tag_name: ${{ steps.get_version.outputs.version }}
               token: ${{ secrets.REPO_TOKEN }}
