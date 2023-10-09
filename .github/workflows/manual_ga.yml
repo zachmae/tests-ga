@@ -45,3 +45,5 @@ jobs:
         steps:
             - name: display hello world
               run: echo "Hello World"
+            - name: display file 1
+              run: echo file1.txt
