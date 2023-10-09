@@ -48,7 +48,7 @@ jobs:
           - name: Checkout code
             uses: actions/checkout@v3
           - name: ls
-            run: ls
+            run: ls -a
           - name: display file 1
             run: cat file.txt
           - name: Read Release Version
