@@ -47,10 +47,13 @@ jobs:
             run: echo "Hello World"
           - name: Checkout code
             uses: actions/checkout@v3
-          - name: get tags
-            run: git fetch --all
-          - name: ls
-            run: ls -a
+            with:
+              fetch-depth: 0
+          - name: 'Get Previous tag'
+            id: previoustag
+            uses: "WyriHaximus/github-action-get-previous-tag@v1"
+            with:
+              fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
           - name: check tags
             run: git describe --tags --abbrev=0
           - name: display file 1
@@ -59,8 +62,7 @@ jobs:
             id: get_version
             run: |
               # Read the release version from a text file
-              release_version=$(git describe --tags --abbrev=0)
-              echo "::set-output name=version::$release_version"
+              echo "::set-output name=version::${{ steps.latesttag.outputs.tag }}"
             shell: bash
           - name: display version
             run: echo ${{ steps.get_version.outputs.version }}
