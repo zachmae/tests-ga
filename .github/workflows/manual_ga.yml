@@ -43,8 +43,6 @@ jobs:
         runs-on: ubuntu-latest
         name: A job to say hello
         steps:
-          - name: display hello world
-            run: echo "Hello World"
           - name: Checkout code
             uses: actions/checkout@v3
             with:
@@ -52,16 +50,6 @@ jobs:
           - name: 'Get Previous tag'
             id: previoustag
             uses: "WyriHaximus/github-action-get-previous-tag@v1"
-          - name: check tags
-            run: echo ${{ steps.previoustag.outputs.tag }}
-          - name: Read Release Version
-            id: get_version
-            run: |
-              # Read the release version from a text file
-              echo "::set-output name=version::${{ steps.previoustag.outputs.tag }}"
-            shell: bash
-          - name: display token
-            run: echo ${{ secrets.REPO_TOKEN }}
           - name: create release
             uses: softprops/action-gh-release@v1
             with:
